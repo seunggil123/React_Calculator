@@ -29,6 +29,13 @@ class App extends Component {
             });
         }
     }
+
+    handleClear = () => {
+        this.setState({
+            input: '',
+            result: ''
+        });
+    }
     
 
     handleResultClick = () => {
@@ -42,13 +49,14 @@ class App extends Component {
     }    
 
     render() {
-        const {handleChange,handleResultClick,handleButtonClick} = this;
+        const {handleChange,handleResultClick,handleButtonClick,handleClear} = this;
         const {input,result} = this.state;
         return (
             <PageTemplate>
                 <Keypad onChange={handleChange} value={input}
                  handleResultClick={handleResultClick} 
                  handleButtonClick={handleButtonClick}
+                 Clear = {handleClear}
                  result={result}/>
             </PageTemplate>
         );

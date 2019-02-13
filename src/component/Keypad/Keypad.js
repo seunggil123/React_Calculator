@@ -10,9 +10,12 @@ class NumberInput extends Component {
       if(e.key==='Enter' || e.key==='='){
           this.props.handleResultClick();
       }
-      else if(e.keyCode===27) {
-        console.log('ESC')
-      }
+    }
+
+    onKeyUp = (e) => {
+        if(e.key==='Escape'){
+            this.props.Clear();
+        }
     }
 
     render() {
@@ -24,6 +27,7 @@ class NumberInput extends Component {
                 <input onChange={onChange}
                  value={value}
                  onKeyPress={this.onKeyPress}
+                 onKeyUp={this.onKeyUp}
                  //하위 컴포넌트는 onChange라고 써야함 
                  ></input>
                  <div>
